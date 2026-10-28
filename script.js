@@ -9,47 +9,105 @@ document.addEventListener("DOMContentLoaded", () => {
        MOBILE MENU
     ===================================================== */
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
+    /* =========================================
+   MOBILE NAVIGATION
+========================================= */
 
-    if (menuToggle && navMenu) {
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
 
-        menuToggle.addEventListener("click", () => {
 
-            navMenu.classList.toggle("open");
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
 
-            const icon = menuToggle.querySelector("i");
+/* ==========================================
+   MOBILE NAVIGATION
+========================================== */
 
-            if (icon) {
-                icon.className = navMenu.classList.contains("open")
-                    ? "ri-close-line"
-                    : "ri-menu-3-line";
-            }
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
 
-        });
+if (menuToggle && navMenu) {
+    const menuIcon = menuToggle.querySelector("i");
 
-        // Close menu when clicking a navigation link
-        document.querySelectorAll(".nav-link").forEach(link => {
+    function closeMenu() {
+        navMenu.classList.remove("open");
 
-            link.addEventListener("click", () => {
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
 
-                navMenu.classList.remove("open");
-
-                const icon = menuToggle.querySelector("i");
-
-                if (icon) {
-                    icon.className = "ri-menu-3-line";
-                }
-
-            });
-
-        });
-
+        if (menuIcon) {
+            menuIcon.className = "ri-menu-3-line";
+        }
     }
-    
-/* =====================================================
-   NAVBAR - ACTIVE UNDERLINE ON SCROLL
-===================================================== */
+
+    function toggleMenu() {
+        const isOpen = navMenu.classList.toggle("open");
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
+
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+        );
+
+        if (menuIcon) {
+            menuIcon.className = isOpen
+                ? "ri-close-line"
+                : "ri-menu-3-line";
+        }
+    }
+
+    menuToggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+        toggleMenu();
+    });
+
+    // Close menu after selecting a navigation link
+    navMenu.querySelectorAll(".nav-link").forEach(link => {
+        link.addEventListener("click", closeMenu);
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function (event) {
+        if (
+            navMenu.classList.contains("open") &&
+            !navMenu.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+            closeMenu();
+        }
+    });
+
+    // Close menu with Escape
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+    });
+
+    // Close dropdown when switching back to desktop
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 1000) {
+            closeMenu();
+        }
+    });
+}
+
+
+/* ==========================================
+   ACTIVE NAVIGATION ON SCROLL
+========================================== */
 
 const navLinks = document.querySelectorAll(".nav-link");
 
@@ -61,31 +119,43 @@ const sectionLinks = Array.from(navLinks)
             return null;
         }
 
-        const section = document.getElementById(href.substring(1));
+        const section = document.getElementById(
+            href.substring(1)
+        );
 
-        return section ? { link, section } : null;
+        return section
+            ? { link, section }
+            : null;
     })
     .filter(Boolean);
 
+
 function setActiveLink(activeLink) {
     navLinks.forEach(link => {
-        link.classList.remove("active");
-    });
+        const isActive = link === activeLink;
 
-    if (activeLink) {
-        activeLink.classList.add("active");
-    }
+        link.classList.toggle("active", isActive);
+
+        if (isActive) {
+            link.setAttribute("aria-current", "location");
+        } else {
+            link.removeAttribute("aria-current");
+        }
+    });
 }
+
 
 function updateActiveSection() {
     if (!sectionLinks.length) return;
 
-    const header = document.querySelector("header, .navbar, nav");
-    const headerHeight = header
-        ? header.getBoundingClientRect().height
-        : 100;
+    const navbar = document.querySelector(".navbar");
 
-    const scrollPosition = window.scrollY + headerHeight + 100;
+    const navbarHeight = navbar
+        ? navbar.getBoundingClientRect().height
+        : 80;
+
+    const scrollPosition =
+        window.scrollY + navbarHeight + 100;
 
     let currentSection = sectionLinks[0];
 
@@ -95,105 +165,116 @@ function updateActiveSection() {
         }
     });
 
-    // Select the last section when reaching the bottom of the page
+    // Activate the last section at the bottom of the page
     if (
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 5
     ) {
-        currentSection = sectionLinks[sectionLinks.length - 1];
+        currentSection =
+            sectionLinks[sectionLinks.length - 1];
     }
 
     setActiveLink(currentSection.link);
 }
 
-// Update underline when clicking a navigation link
+
+// Update the active link when clicked
 navLinks.forEach(link => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", function () {
         setActiveLink(link);
     });
 });
 
-// Update underline while scrolling
-window.addEventListener("scroll", updateActiveSection, {
-    passive: true
-});
 
-// Set the correct underline when the page loads
-updateActiveSection();
+// Update while scrolling
+window.addEventListener(
+    "scroll",
+    updateActiveSection,
+    { passive: true }
+);
 
-// Recalculate after the page finishes loading
 window.addEventListener("load", updateActiveSection);
 
+updateActiveSection();
 
-   const typingText = document.querySelector(".typing-text");
 
-const words = [
-    "UI/UX Designer",
-    "Graphic Designer",
-    "Website Designer",
-    "Visual Designer"
-];
+/* ==========================================
+   HERO TYPING ANIMATION
+========================================== */
 
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+const typingText = document.querySelector(".typing-text");
 
-const typingSpeed = 100;
-const deletingSpeed = 60;
-const pauseAfterTyping = 1800;
-const pauseAfterDeleting = 500;
+if (typingText) {
+    const words = [
+        "UI/UX Designer",
+        "Graphic Designer",
+        "Website Designer",
+        "Visual Designer"
+    ];
 
-function typeEffect() {
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
 
-    const currentWord = words[wordIndex];
+    const typingSpeed = 100;
+    const deletingSpeed = 60;
+    const pauseAfterTyping = 1800;
+    const pauseAfterDeleting = 500;
 
-    if (!isDeleting) {
 
-        typingText.textContent = currentWord.substring(
-            0,
-            charIndex + 1
-        );
+    function typeEffect() {
+        const currentWord = words[wordIndex];
 
-        charIndex++;
+        if (!isDeleting) {
 
-        if (charIndex === currentWord.length) {
+            // Type the word
+            typingText.textContent =
+                currentWord.substring(0, charIndex + 1);
 
-            isDeleting = true;
+            charIndex++;
 
-            setTimeout(typeEffect, pauseAfterTyping);
-            return;
-        }
+            if (charIndex >= currentWord.length) {
+                isDeleting = true;
 
-        setTimeout(typeEffect, typingSpeed);
+                setTimeout(
+                    typeEffect,
+                    pauseAfterTyping
+                );
 
-    } else {
-
-        typingText.textContent = currentWord.substring(
-            0,
-            charIndex - 1
-        );
-
-        charIndex--;
-
-        if (charIndex === 0) {
-
-            isDeleting = false;
-
-            wordIndex++;
-
-            if (wordIndex === words.length) {
-                wordIndex = 0;
+                return;
             }
 
-            setTimeout(typeEffect, pauseAfterDeleting);
-            return;
+            setTimeout(typeEffect, typingSpeed);
+
+        } else {
+
+            // Delete the word
+            typingText.textContent =
+                currentWord.substring(0, charIndex - 1);
+
+            charIndex--;
+
+            if (charIndex <= 0) {
+                isDeleting = false;
+
+                wordIndex =
+                    (wordIndex + 1) % words.length;
+
+                setTimeout(
+                    typeEffect,
+                    pauseAfterDeleting
+                );
+
+                return;
+            }
+
+            setTimeout(typeEffect, deletingSpeed);
         }
-
-        setTimeout(typeEffect, deletingSpeed);
     }
-}
 
-typeEffect();
+    // Start typing after the page loads
+    setTimeout(typeEffect, 900);
+}
 
 /* =========================================================
    ABOUT ME - SCROLL ANIMATION
