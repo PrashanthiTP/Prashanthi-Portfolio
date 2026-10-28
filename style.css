@@ -496,53 +496,9 @@ body.dark .navbar {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
-    gap: 30px;
-}
-.stats {
-    display: flex;
-    align-items: flex-start;
-    gap: 65px;
-    margin-top: 25px;
+    gap: clamp(10px, 3vw, 20px);
 }
 
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.stat-item h3 {
-    margin: 0;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: 34px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: #111116;
-}
-
-.stat-item p {
-    margin: 0;
-    font-family: "DM Sans", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #666872;
-}
-@media (max-width: 600px) {
-
-    .stats {
-        gap: 30px;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    .stat-item h3 {
-        font-size: 28px;
-    }
-
-    .stat-item p {
-        font-size: 12px;
-    }
-}
 .hero-content {
     min-width: 0;
     animation: heroContent 1s ease both;
@@ -580,28 +536,26 @@ body.dark .navbar {
     margin: 0 0 5px;
     color: var(--text-light);
     font-size: 18px;
-    animation:
-        fadeUp 0.8s 0.3s ease both;
 }
 
-.hero h1 {
-    margin: 0 0 10px;
+.hero-name {
+    margin: 0 0 8px;
     color: var(--text);
     font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: clamp(32px, 4.4vw, 66px);
-    font-weight: 600;
+    font-size: clamp(42px, 5.5vw, 76px);
+    font-weight: 700;
     line-height: 1.08;
     letter-spacing: -2.5px;
     overflow-wrap: anywhere;
 }
 
 .hero-title {
-    margin: 20px 0 34px;
+    margin: 0 0 24px;
     font-family: "Plus Jakarta Sans", sans-serif;
-    font-size: clamp(45px, 7vw, 90px);
+    font-size: clamp(32px, 4.5vw, 62px);
     font-weight: 600;
     line-height: 1.2;
-    letter-spacing: -4px;
+    letter-spacing: -1.5px;
     overflow-wrap: anywhere;
 }
 
@@ -630,9 +584,6 @@ body.dark .navbar {
     color: var(--text-light);
     font-size: 16px;
     line-height: 1.8;
-    animation:
-        fadeUp 0.8s 0.5s ease both;
-
 }
 
 /* Hero buttons */
@@ -2265,7 +2216,7 @@ body.dark .navbar {
 .filter-btn.active {
     color: #ffffff;
     border-color: transparent;
-   background: linear-gradient(100deg, #1800d5, #00bde9);
+    background: linear-gradient(100deg, #1800d5, #00bde9);
 }
 
 /* View All Projects */
@@ -2282,7 +2233,7 @@ body.dark .navbar {
     margin-left: auto;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(100deg, #1800d5, #00bde9);
+    background: linear-gradient(100deg, #3520e1, #3446f5, #0d6df0);
     color: #ffffff;
     text-decoration: none;
     font-family: "DM Sans", sans-serif;
