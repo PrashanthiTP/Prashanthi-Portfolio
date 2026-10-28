@@ -8,7 +8,7 @@
     <meta name="description"
         content="Prashanthi - UI/UX Designer Portfolio. Explore my UI/UX projects, design process, skills and experience.">
 
-    <title>Prashanthi | UI/UX Designer</title>
+    <title>Prashanthi| UI/UX Designer</title>
 
 
     <!-- ================= GOOGLE FONTS ================= -->
@@ -43,231 +43,179 @@
      NAVBAR
 ====================================================== -->
 
-<header class="navbar">
-    <div class="nav-container">
 
-        <!-- Logo -->
-        <a href="#home" class="logo">
-            <span>TP</span>
-            Prashanthi
-        </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>Prashanthi | UI/UX Designer</title>
 
-        <!-- Navigation -->
-        <nav class="nav-menu" id="navMenu">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-            <a href="#home" class="nav-link active">
-                Home
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-container">
+
+            <!-- Mobile menu button: first -->
+            <button
+                type="button"
+                class="menu-btn"
+                id="menuToggle"
+                aria-label="Open navigation menu"
+                aria-controls="navMenu"
+                aria-expanded="false">
+                <i class="ri-menu-3-line" aria-hidden="true"></i>
+            </button>
+
+            <!-- Logo -->
+            <a href="#home" class="logo">
+                <span>TP</span>
+                Prashanthi
             </a>
 
-            <a href="#about" class="nav-link">
-                About
-            </a>
+            <!-- Navigation -->
+            <nav class="nav-menu" id="navMenu" aria-label="Main navigation">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#experience" class="nav-link">Experience</a>
+            </nav>
 
-            <a href="#projects" class="nav-link">
-                Projects
-            </a>
+            <!-- Connect button: right -->
+            <div class="nav-actions">
+                <a href="#contact" class="connect-btn">
+                    Let's Connect
+                    <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
+                </a>
+            </div>
 
-            <a href="#skills" class="nav-link">
-                Skills
-            </a>
-
-            <a href="#experience" class="nav-link">
-                Experience
-            </a>
-
-        </nav>
-
-        
-<!-- Navigation Actions -->
-<div class="nav-actions">
-    <button type="button" class="connect-btn" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">
-        Let's Connect
-        <i class="ri-arrow-right-up-line"></i>
-    </button>
-</div>
-
-
-    </div>
-</header>
-
-    <!-- =====================================================
-         MAIN
-    ====================================================== -->
+        </div>
+    </header>
 
     <main>
 
-
-        <!-- =================================================
-             HERO
-        ================================================== -->
-
-        <section
-            class="hero section"
-            id="home"
-        >
+        <!-- HERO SECTION -->
+        <section class="hero section" id="home">
 
             <div class="hero-container">
 
-
                 <!-- Hero Content -->
-
                 <div class="hero-content">
 
-
                     <div class="available">
-
-                        <span></span>
-
+                        <span aria-hidden="true"></span>
                         Available for opportunities
-
                     </div>
 
+                    <p class="hero-small">Hello, I'm</p>
 
-                    <p class="hero-small">
+                    <h1 class="hero-name">Prashanthi</h1>
 
-                        Hello, I'm
-
-                    </p>
-
-
-                    <h1>
-
-                        Prashanthi
-
-                        <h1 class="hero-title">
-    <span class="typing-text"></span>
-</h1>
-                    </h1>
-                
-
+                    <h2 class="hero-title">
+                        <span class="typing-text">UI/UX Designer</span>
+                    </h2>
 
                     <p class="hero-description">
-
                         I design intuitive, user-centered digital experiences
                         for web and mobile products, combining creativity,
                         usability and visual design.
-
                     </p>
 
-
                     <!-- Hero Buttons -->
-
                     <div class="hero-buttons">
-
-
-                        <a
-                            href="#projects"
-                            class="primary-btn"
-                        >
-
+                        <a href="#projects" class="primary-btn">
                             Explore My Work
-
-                            <i class="ri-arrow-right-line"></i>
-
+                            <i class="ri-arrow-right-line" aria-hidden="true"></i>
                         </a>
 
-
-                        <a
-                            href="#contact"
-                            class="secondary-btn"
-                        >
-
+                        <a href="#contact" class="secondary-btn">
                             Let's Connect
-
                         </a>
-
                     </div>
-              
 
                     <!-- Social Links -->
-
                     <div class="hero-social">
-
-                        <span>
-                            Find me on
-                        </span>
-
+                        <span>Find me on</span>
 
                         <a
                             href="https://www.linkedin.com/in/t-p-prashanthi-48587a266"
                             aria-label="LinkedIn"
-                        >
-
-                            <i class="ri-linkedin-fill"></i>
-
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="ri-linkedin-fill" aria-hidden="true"></i>
                         </a>
-
 
                         <a
                             href="https://www.behance.net/subishanthi55"
                             aria-label="Behance"
-                        >
-
-                            <i class="ri-behance-fill"></i>
-
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="ri-behance-fill" aria-hidden="true"></i>
                         </a>
-
                     </div>
 
                 </div>
-                
 
+                <!-- Hero Image and Floating Cards -->
+                <div class="hero-visual">
 
+                    <div class="hero-circle" aria-hidden="true"></div>
 
-                <!-- =================================================
-                     HERO VISUAL
-                ================================================== -->
+                    <img
+                        src="PrashanthiImage2.png"
+                        alt="Prashanthi, UI/UX Designer"
+                        class="portfolio-hero-image">
 
-     <div class="hero-visual">
+                    <div class="floating-card card-one">
+                        <i class="ri-layout-4-line"></i>
+                        <span>UI Design</span>
+                    </div>
 
-    <!-- Portfolio Image -->
+                    <div class="floating-card card-two">
+                        <i class="ri-search-eye-line"></i>
+                        <span>User Research</span>
+                    </div>
 
-        <img 
-            src="PrashanthiImage2.png"
-            alt="Prashanthi UI UX Designer"
-            class="portfolio-hero-image"
-        >
+                    <div class="floating-card card-three">
+                        <i class="ri-pages-line"></i>
+                        <span>Wireframing</span>
+                    </div>
 
+                    <div class="floating-card card-four">
+                        <i class="ri-flow-chart"></i>
+                        <span>Prototyping</span>
+                    </div>
 
-    <!-- UI Design Card -->
-    <!-- UI Design Card -->
-<div class="floating-card card-one">
-    <i class="ri-layout-4-line"></i>
-    <span>UI Design</span>
-</div>
+                    <div class="floating-card card-five">
+                        <i class="ri-user-heart-line"></i>
+                        <span>UX Thinking</span>
+                    </div>
 
+                </div>
 
-<!-- User Research Card -->
-<div class="floating-card card-two">
-    <i class="ri-search-eye-line"></i>
-    <span>User Research</span>
-</div>
+            </div>
+        </section>
 
+        <!--
+            Keep your existing About, Projects, Skills,
+            Experience and Contact sections here.
+        -->
 
-<!-- Wireframing Card -->
-<div class="floating-card card-three">
-    <i class="ri-pages-line"></i>
-    <span>Wireframing</span>
-</div>
-
-
-<!-- Prototyping Card -->
-<div class="floating-card card-four">
-    <i class="ri-flow-chart"></i>
-    <span>Prototyping</span>
-</div>
-
-
-<!-- UX Thinking Card -->
-<div class="floating-card card-five">
-    <i class="ri-user-heart-line"></i>
-    <span>UX Thinking</span>
-</div>
-    </div>
-    
-
-</div>
-</section>
+    </main>
 
 
 <section class="about-section" id="about">
