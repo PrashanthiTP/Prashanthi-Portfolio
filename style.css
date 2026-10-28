@@ -2216,7 +2216,7 @@ body.dark .navbar {
 .filter-btn.active {
     color: #ffffff;
     border-color: transparent;
-    background: linear-gradient(100deg, #1800d5, #00bde9);
+    background: linear-gradient(100deg, #3520e1, #3446f5, #0d6df0);
 }
 
 /* View All Projects */
