@@ -15,11 +15,10 @@
 
     --gradient:
         linear-gradient(
-            90deg,
-            rgba(18, 9, 189, 1) 0%,
-            rgba(9, 9, 121, 1) 35%,
-            rgba(0, 212, 255, 1) 100%
-        );
+        90deg,
+        #1823b8 0%,
+        #0875d1 60%,
+        #00bde9 100%);
 
 
     /* Main Colors */
@@ -2216,7 +2215,11 @@ body.dark .navbar {
 .filter-btn.active {
     color: #ffffff;
     border-color: transparent;
-    background: linear-gradient(100deg, #3520e1, #3446f5, #0d6df0);
+    background: linear-gradient(
+        90deg,
+        #1823b8 0%,
+        #0875d1 60%,
+        #00bde9 100%);
 }
 
 /* View All Projects */
@@ -2233,7 +2236,11 @@ body.dark .navbar {
     margin-left: auto;
     border: none;
     border-radius: 8px;
-    background: linear-gradient(100deg, #3520e1, #3446f5, #0d6df0);
+    background: linear-gradient(
+        90deg,
+        #1823b8 0%,
+        #0875d1 60%,
+        #00bde9 100%);
     color: #ffffff;
     text-decoration: none;
     font-family: "DM Sans", sans-serif;
