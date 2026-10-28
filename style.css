@@ -4573,7 +4573,215 @@ body.dark .navbar {
     }
 }
 
+/* =========================================
+   TABLET RESPONSIVE - HERO SECTION
+========================================= */
 
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    /* Navbar */
+    .nav-container {
+        width: calc(100% - 48px);
+        column-gap: 14px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+
+    .nav-menu {
+        gap: 16px;
+    }
+
+    .connect-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+    }
+
+    /* Hero layout */
+    .hero-container {
+        width: calc(100% - 64px);
+        max-width: 100%;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+        align-items: center;
+        gap: 24px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Hero content */
+    .hero-content {
+        width: 100%;
+        min-width: 0;
+        text-align: left;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(34px, 4.5vw, 48px);
+        line-height: 1.15;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* Hero buttons */
+    .hero-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    /* Social links */
+    .hero-social {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 26px;
+    }
+
+    .hero-social a {
+        width: 34px;
+        height: 34px;
+    }
+
+    /* Hero visual container */
+    .hero-visual {
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        min-height: 390px;
+        margin: 0 auto;
+        overflow: visible;
+        box-sizing: border-box;
+    }
+
+    /* Main image */
+    .portfolio-hero-image {
+        display: block;
+        position: relative;
+        width: min(90%, 380px);
+        max-width: 100%;
+        max-height: 420px;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    /* Floating cards */
+    .floating-card {
+        position: absolute;
+        width: max-content;
+        max-width: 44%;
+        padding: 10px 12px;
+        font-size: 12px;
+        line-height: 1.4;
+        border-radius: 12px;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+        z-index: 5;
+    }
+
+    /* UI Design */
+    .hero-visual .card-one {
+        top: 8%;
+        left: 0;
+        right: auto;
+        bottom: auto;
+    }
+
+    /* User Research */
+    .hero-visual .card-two {
+        top: 8%;
+        right: 0;
+        left: auto;
+        bottom: auto;
+    }
+
+    /* Wireframing */
+    .hero-visual .card-three {
+        bottom: 15%;
+        left: 0;
+        right: auto;
+        top: auto;
+    }
+
+    /* Prototyping */
+    .hero-visual .card-four {
+        bottom: 15%;
+        right: 0;
+        left: auto;
+        top: auto;
+    }
+
+    /* UX Thinking */
+    .hero-visual .card-five {
+        bottom: 3%;
+        left: 50%;
+        right: auto;
+        top: auto;
+        transform: translateX(-50%);
+    }
+}
+
+
+/* =========================================
+   TABLETS IN PORTRAIT / NARROW TABLETS
+========================================= */
+
+@media (min-width: 601px) and (max-width: 800px) {
+
+    .hero-container {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+        width: calc(100% - 40px);
+        gap: 16px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(30px, 4.2vw, 38px);
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .hero-visual {
+        min-height: 340px;
+    }
+
+    .portfolio-hero-image {
+        width: 95%;
+        max-height: 360px;
+    }
+
+    .floating-card {
+        max-width: 46%;
+        padding: 8px 9px;
+        font-size: 11px;
+    }
+
+    .hero-visual .card-one,
+    .hero-visual .card-three {
+        left: 0;
+    }
+
+    .hero-visual .card-two,
+    .hero-visual .card-four {
+        right: 0;
+    }
+}
 /* =========================================
    MOBILE
 ========================================= */
